@@ -10,3 +10,7 @@ Scenario: Verify user can create an account
    And I enters valid details and click submit button
    Then Success message should be displayed
 
+Scenario: Verify user can login with correct credentials
+    When User in the login page
+    And I enter valid login credentials and submit
+    Then Welcome message should be displayed 

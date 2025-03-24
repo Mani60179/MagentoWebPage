@@ -1,5 +1,6 @@
 import { Given,When,Then } from "@badeball/cypress-cucumber-preprocessor";
 import createAnAccountPage from "../../support/pageObjects/createAnAccountPage";
+import loginPage from "../../support/pageObjects/loginPage";
 
 const user = {
     firstName: 'Semba',
@@ -23,3 +24,17 @@ When('I enters valid details and click submit button',()=>{
 Then('Success message should be displayed', ()=>{
         createAnAccountPage.getSuccessMessage().should('be.visible');
     })
+
+When('User in the login page', ()=>{
+        loginPage.sigInButton();
+})
+
+
+When('I enter valid login credentials and submit', ()=>{
+        loginPage.enterCredentials(user.email, user.password);
+        loginPage.submit()
+})
+    
+Then('Welcome message should be displayed',()=>{
+        loginPage.getWelcomeMessage();
+})
