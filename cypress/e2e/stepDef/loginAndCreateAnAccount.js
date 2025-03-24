@@ -38,3 +38,12 @@ When('I enter valid login credentials and submit', ()=>{
 Then('Welcome message should be displayed',()=>{
         loginPage.getWelcomeMessage();
 })
+
+When('I enters invalid login credentials and submit',()=>{
+        loginPage.enterCredentials('johninvalid@domain.com', 'Abdga@12345')
+        loginPage.submit()
+})
+
+Then('An error message should be displayed',()=>{
+        loginPage.getErrorMessage()
+})

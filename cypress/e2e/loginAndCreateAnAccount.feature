@@ -13,4 +13,9 @@ Scenario: Verify user can create an account
 Scenario: Verify user can login with correct credentials
     When User in the login page
     And I enter valid login credentials and submit
-    Then Welcome message should be displayed 
+    Then Welcome message should be displayed
+
+Scenario: Verify User can sees error message for invalid login
+    When User in the login page
+    And I enters invalid login credentials and submit
+    Then An error message should be displayed    

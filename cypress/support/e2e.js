@@ -1,2 +1,3 @@
 
-import './commands'
+import './commands';
+import 'cypress-mochawesome-reporter/register';

@@ -18,5 +18,8 @@
     "@badeball/cypress-cucumber-preprocessor": "^20.1.1",
     "@cypress/browserify-preprocessor": "^3.0.2",
     "cypress": "^14.2.0"
+  },
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^3.8.2"
   }
 }

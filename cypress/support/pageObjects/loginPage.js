@@ -15,6 +15,9 @@ class loginPage {
     getWelcomeMessage() {
         return cy.contains('Welcome, Semba Selva!');
     }
+    getErrorMessage() {
+        return cy.contains('The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.');
+    }
 }    
 
 export default new loginPage();

@@ -6,7 +6,7 @@ async function setupNodeEvents(on, config) {
 
   await preprocessor.addCucumberPreprocessorPlugin(on, config);
     on("file:preprocessor", browserify.default(config))
-    //require('cypress-mochawesome-reporter/plugin')(on);
+    require('cypress-mochawesome-reporter/plugin')(on);
     
   return config;
        
@@ -26,6 +26,16 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents,
     specPattern: 'cypress/e2e/*.feature'
+  },
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    charts: true,
+    reportFileName: 'Report-[datetime]',
+    timestamp: 'mm/dd/yyyy_HH/MM/SS',
+    overwrite: false,
+    reportPageTitle: 'Luma Report',
+    embeddedScreenshots: true,
+    inlineAssets: true
   }
+});
 
-})
