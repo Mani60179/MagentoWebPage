@@ -7,7 +7,7 @@ Background:
 
 Scenario: Verify user can create an account
    When User in the create an account page
-   And I enters valid details and click submit button
+   And I enter valid details and click submit button
    Then Success message should be displayed
 
 Scenario: Verify user can login with correct credentials
@@ -18,4 +18,9 @@ Scenario: Verify user can login with correct credentials
 Scenario: Verify User can sees error message for invalid login
     When User in the login page
     And I enters invalid login credentials and submit
-    Then An error message should be displayed    
+    Then An error message should be displayed   
+
+Scenario: Verify user can see email uniqueness during create an account
+    When User in the create an account page
+    And I enter already registered details and click submit button
+    Then An error message should be displayed and email uniqueness confirmed
